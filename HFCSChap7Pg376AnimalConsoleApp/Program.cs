@@ -6,12 +6,25 @@ using System.Threading.Tasks;
 
 namespace HFCSChap7Pg376AnimalConsoleApp
 {
+
+    interface ISwimmer
+    {
+        void Swim();
+    }// end ISwimmer
+
+    interface IPackHunter
+    {
+        void HuntInPack();
+    }//end IPackHunter
+
+
+
     abstract class Animal
     {
         public abstract void MakeNoise();
     }//end class
 
-    class Hippo : Animal
+    class Hippo : Animal, ISwimmer
     {
         public override void MakeNoise()
         {
@@ -30,7 +43,7 @@ namespace HFCSChap7Pg376AnimalConsoleApp
         public bool BelongsToPack { get; protected set; } = false;
     }//end class
 
-    class Wolf : Canine
+    class Wolf : Canine, IPackHunter
     {
         public Wolf(bool belongsToPack)
         {
@@ -77,14 +90,14 @@ namespace HFCSChap7Pg376AnimalConsoleApp
             foreach (Animal animal in animals)
             {
                 animal.MakeNoise();
-                if (animal is Hippo hippo)
+                if (animal is ISwimmer swimmer)
                 {
-                    hippo.Swim();
+                    swimmer.Swim();
                 }
 
-                if (animal is Wolf wolf)
+                if (animal is IPackHunter hunter)
                 {
-                    wolf.HuntInPack();
+                    hunter.HuntInPack();
                 }
 
                 Console.WriteLine();
