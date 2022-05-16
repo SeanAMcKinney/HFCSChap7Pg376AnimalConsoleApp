@@ -43,7 +43,7 @@ namespace HFCSChap7Pg376AnimalConsoleApp
             {
                 Console.WriteLine("I'm in a pack.");
                 Console.WriteLine("Aroooooo!");
-            }         
+            }
         }
 
         public void HuntInPack()
@@ -67,8 +67,28 @@ namespace HFCSChap7Pg376AnimalConsoleApp
 
             Animal[] animals =
             {
-
+                new Wolf(false),
+                new Hippo(),
+                new Wolf(true),
+                new Wolf(false),
+                new Hippo()
             };
+
+            foreach (Animal animal in animals)
+            {
+                animal.MakeNoise();
+                if (animal is Hippo hippo)
+                {
+                    hippo.Swim();
+                }
+
+                if (animal is Wolf wolf)
+                {
+                    wolf.HuntInPack();
+                }
+
+                Console.WriteLine();
+            }
 
         }//end main
     }//end class
