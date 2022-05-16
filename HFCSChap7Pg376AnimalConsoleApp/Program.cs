@@ -17,6 +17,12 @@ namespace HFCSChap7Pg376AnimalConsoleApp
         {
             Console.WriteLine("Grunt");
         }
+
+        public void Swim()
+        {
+            Console.WriteLine("Splash! I'm going for a swim!");
+        }
+
     }//end class
 
     abstract class Canine : Animal
@@ -58,6 +64,12 @@ namespace HFCSChap7Pg376AnimalConsoleApp
     {
         static void Main(string[] args)
         {
+
+            Animal[] animals =
+            {
+
+            };
+
         }//end main
     }//end class
 }//end namespace
